@@ -10,26 +10,44 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
+            var vehicles = new List<Vehicle>();
+
+            var juansCar = new Car() {Year=2021 , Make="Ford" , Model="Explorer" };
+            var juansMotorcycle = new Motorcycle() { Year = 2019, Make = "Harley", Model = "Kt500" };
+            Vehicle juanOneVehicle = new Car() { Year = 2017, Make = "Toyota", Model = "Camry" };
+            Vehicle juanTwoVehicle = new Motorcycle() { Year = 2015, Make = "Honda", Model = "Ninja300" };
+
+            vehicles.Add(juansCar);
+            vehicles.Add(juansMotorcycle);
+            vehicles.Add(juanOneVehicle);
+            vehicles.Add(juanTwoVehicle);
+
+            foreach(var vehicle in vehicles)
+            {
+                Console.WriteLine($"My {vehicle.Model} it's mark is {vehicle.Make} and it is of {vehicle.Year}");
+            }
+
+            juansCar.DriveAbstract();
+            juansCar.DriveVirtual();
+            juansMotorcycle.DriveAbstract();
+            juansMotorcycle.DriveVirtual();
+            juanOneVehicle.DriveAbstract();
+            juanOneVehicle.DriveVirtual();
+            juanTwoVehicle.DriveAbstract();
+            juanTwoVehicle.DriveVirtual();
+
+
+
+
+
+
             /*
              * Todo follow all comments!! 
              */
 
             #region Vehicles
 
-            /*
-             * Create an abstract class called Vehicle
-             * The vehicle class shall have three string properties Year, Make, and Model
-             * Set the defaults to something generic in the Vehicle class
-             * Vehicle shall have an abstract method called DriveAbstract with no implementation
-             * Vehicle shall have a virtual method called DriveVirtual with a base implementation.
-             */
 
-            /* 
-             * Now create 2 non-abstract classes: Car and Motorcycle, that inherit from Vehicle
-             * Add a distict property in the 2 derived classes such as HasTrunk for Car and HasSideCart for Motorcycle
-             * Provide the implementations for the abstract methods
-             * Only in the Motorcycle class will you override the virtual drive method
-            */
 
             // Create a list of Vehicle called vehicles
 
@@ -46,7 +64,7 @@ namespace ConsoleUI
 
             // Call each of the drive methods for one car and one motorcycle
 
-            #endregion            
+            #endregion
             Console.ReadLine();
         }
     }
